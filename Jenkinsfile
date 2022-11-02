@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Relative path') {
             steps {            
-                sh('scripts/fibonacci.sh')
+                sh('\scripts\fibonacci.sh')
             }
         }
         stage('Full path') {
