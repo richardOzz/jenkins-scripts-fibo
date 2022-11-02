@@ -22,7 +22,7 @@ pipeline {
       
         stage('rootPath') {
             steps {
-                sh(‘./fibonacci.sh’)
+                sh('./fibonacci.sh')
             }
         }
        
