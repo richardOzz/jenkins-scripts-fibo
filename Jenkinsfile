@@ -20,12 +20,8 @@ pipeline {
             }
         }
         stage('Relative path') {
-            steps {
-                sh(path='readlink -f "${BASH_SOURCE:-$0}"')
-                sh(DIR_PATH='dirname $path'
-                echo('Abs path is' $path)
-                echo('Directory path is' $DIR_PATH)
-                sh('./scripts/fibonacci.sh')
+            steps {            
+                sh('scripts/fibonacci.sh')
             }
         }
         stage('Full path') {
