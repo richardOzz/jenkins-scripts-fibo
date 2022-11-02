@@ -17,11 +17,12 @@ pipeline {
         stage('Make executable') {
             steps {
                 sh('chmod +x ./scripts/fibonacci.sh')
+                sh('chmod +x ./fibonacci.sh')
             }
         }
         stage('Relative path') {
             steps {            
-                sh('\scripts\fibonacci.sh')
+                sh('./fibonacci.sh')
             }
         }
         stage('Full path') {
