@@ -17,15 +17,24 @@ pipeline {
         stage('Make executable') {
             steps {
                 sh('chmod +x ./scripts/fibonacci.sh')
-                sh('chmod +x ./fibonacci.sh')
             }
         }
-      
-        stage('rootPath') {
+        stage('Relative path') {
             steps {
-                sh('./fibonacci.sh')
+                sh("./scripts/fibonacci.sh ${env.NUMBER}")
             }
         }
-       
+        stage('Full path') {
+            steps {
+                sh("${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}")
+            }
+        }
+        stage('Change directory') {
+            steps {
+                dir("${env.WORKSPACE}/scripts"){
+                    sh("./fibonacci.sh ${env.NUMBER}")
+                }
+            }
+        }
     }
 }
