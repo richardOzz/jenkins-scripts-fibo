@@ -17,6 +17,7 @@ pipeline {
         stage('Make executable') {
             steps {
                 sh('chmod +x ./scripts/fibonacci.sh')
+                sh('chmod +x ./fibonacci.sh')
             }
         }
       
