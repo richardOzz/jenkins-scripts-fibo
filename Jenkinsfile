@@ -20,17 +20,11 @@ pipeline {
             }
         }
       
-        stage('Full path') {
+        stage('rootPath') {
             steps {
-                sh("${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}")
+                sh(‘./fibonacci.sh’)
             }
         }
-        stage('Change directory') {
-            steps {
-                dir("${env.WORKSPACE}/scripts"){
-                    sh("./fibonacci.sh ${env.NUMBER}")
-                }
-            }
-        }
+       
     }
 }
